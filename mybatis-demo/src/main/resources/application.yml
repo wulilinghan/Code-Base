@@ -1,0 +1,28 @@
+server:
+  port: 8066
+spring:
+  application:
+    name: mybatis-demo
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mybatis-demo?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root@123
+mybatis-plus:
+  # 类别名 多个包路径 通过逗号“,”隔开
+  typeAliasesPackage: top.b0x0.demo.mybatis.domain
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    # 一级缓存 SESSION或者STATEMENT
+    local-cache-scope: statement
+    # 二级缓存
+    cache-enabled: false
+  global-config:
+    banner: false
+    db-config:
+      db-type: mysql
+      logic-delete-value: 0
+      logic-not-delete-value: 1
