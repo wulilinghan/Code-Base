@@ -13,7 +13,7 @@ public class JinritoutiaoCallBack extends CpaCallBack {
 
     @Override
     public Boolean callbackAdvertisers(CpaUnionInfo cpaUnionInfo) {
-        System.out.println("cpaUnionInfo = " + cpaUnionInfo);
+        System.out.println("调用今日头条回调方法 = " + cpaUnionInfo);
         return true;
     }
 }

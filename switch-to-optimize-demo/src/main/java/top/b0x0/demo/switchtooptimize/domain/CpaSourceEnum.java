@@ -3,7 +3,6 @@ package top.b0x0.demo.switchtooptimize.domain;
 /**
  * @author musui
  */
-
 public enum CpaSourceEnum {
     /**
      * 广告商
@@ -15,26 +14,44 @@ public enum CpaSourceEnum {
     tuia(5, "推啊", "tuiaCallBack"),
     adjuz(6, "巨掌", "adjuzCallBack");
 
-    private int value;
-    private String description;
+    private final Integer id;
+    private final String description;
 
     /**
      * SpringBean,用于找到对应的对象
      */
-    private String defaultBeanName;
+    private final String defaultBeanName;
 
     /**
-     * @param value           /
+     * @param id           /
      * @param description     /
      * @param defaultBeanName SpringBean,用于找到对应的对象
      */
-    CpaSourceEnum(int value, String description, String defaultBeanName) {
-        this.value = value;
+    CpaSourceEnum(Integer id, String description, String defaultBeanName) {
+        this.id = id;
         this.description = description;
         this.defaultBeanName = defaultBeanName;
     }
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public String getDefaultBeanName() {
         return defaultBeanName;
+    }
+
+    @Override
+    public String toString() {
+        return "CpaSourceEnum{" +
+                "value=" + id +
+                ", description='" + description + '\'' +
+                ", defaultBeanName='" + defaultBeanName + '\'' +
+                '}';
     }
 }
