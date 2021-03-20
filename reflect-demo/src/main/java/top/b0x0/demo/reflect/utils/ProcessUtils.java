@@ -35,7 +35,6 @@ public class ProcessUtils {
         try {
             Field[] fields = object.getClass().getDeclaredFields();
             for (Field field : fields) {
-                coreProcessing(object, field);
                 // 判断属性是否是List类型
                 if (field.getType() == java.util.List.class) {
                     // 获取到list的size方法
@@ -66,6 +65,7 @@ public class ProcessUtils {
                         }
                     }
                 }
+                coreProcessing(object, field);
             }
         } catch (Exception e) {
             log.error("处理图片异常: {}", e.getMessage());

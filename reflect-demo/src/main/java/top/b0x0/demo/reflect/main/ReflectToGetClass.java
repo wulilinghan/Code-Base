@@ -10,7 +10,7 @@ import top.b0x0.demo.reflect.domain.Student;
  *
  * @author musui
  */
-public class Reflect {
+public class ReflectToGetClass {
     public static void main(String[] args) {
 
         //1. 第一种方式获取Class对象
