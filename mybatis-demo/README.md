@@ -8,3 +8,5 @@ association是用于一对一和多对 association是用于一对一和多对一
 人和身份证 一对一
 班级和学生 一对多
 
+2. 一级和二级缓存测试 MybatisCacheTest
+
