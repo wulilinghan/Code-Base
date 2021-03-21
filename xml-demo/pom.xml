@@ -8,7 +8,7 @@
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>top.b0x0</groupId>
+    <groupId>top.b0x0.demo</groupId>
     <artifactId>xml-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>xml-demo</name>
@@ -22,7 +22,6 @@
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
