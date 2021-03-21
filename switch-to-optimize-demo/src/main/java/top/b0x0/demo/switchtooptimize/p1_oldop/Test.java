@@ -1,7 +1,7 @@
-package top.b0x0.demo.switchtooptimize.old;
+package top.b0x0.demo.switchtooptimize.p1_oldop;
 
-import top.b0x0.demo.switchtooptimize.domain.CpaSourceEnum;
 import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
+import top.b0x0.demo.switchtooptimize.domain.P1CpaSourceEnum;
 
 /**
  * @author musui
@@ -9,7 +9,7 @@ import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
 public class Test {
 
     private static Boolean callbackAdvertisers(CpaUnionInfo cpaUnionInfo) {
-        switch (CpaSourceEnum.valueOf(cpaUnionInfo.getSource())) {
+        switch (P1CpaSourceEnum.valueOf(cpaUnionInfo.getSource())) {
             case wangxiang:
                 System.out.println("wangxiang... ");
                 return true;
@@ -33,8 +33,8 @@ public class Test {
     public static void main(String[] args) {
         CpaUnionInfo cpaUnionInfo = new CpaUnionInfo();
         cpaUnionInfo.setSource("jinritoutiao");
-        CpaSourceEnum cpaSourceEnum = CpaSourceEnum.valueOf(cpaUnionInfo.getSource());
-        System.out.println("cpaSourceEnum.valueOf = " + cpaSourceEnum);
+        P1CpaSourceEnum p1CpaSourceEnum = P1CpaSourceEnum.valueOf(cpaUnionInfo.getSource());
+        System.out.println("cpaSourceEnum.valueOf = " + p1CpaSourceEnum);
 
         Boolean aBoolean = callbackAdvertisers(cpaUnionInfo);
         System.out.println("aBoolean = " + aBoolean);

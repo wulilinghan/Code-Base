@@ -3,7 +3,7 @@ package top.b0x0.demo.switchtooptimize.domain;
 /**
  * @author musui
  */
-public enum CpaSourceEnum {
+public enum P1CpaSourceEnum {
     /**
      * 广告商
      */
@@ -27,7 +27,7 @@ public enum CpaSourceEnum {
      * @param description     /
      * @param defaultBeanName SpringBean,用于找到对应的对象
      */
-    CpaSourceEnum(Integer id, String description, String defaultBeanName) {
+    P1CpaSourceEnum(Integer id, String description, String defaultBeanName) {
         this.id = id;
         this.description = description;
         this.defaultBeanName = defaultBeanName;

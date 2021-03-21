@@ -1,4 +1,4 @@
-package top.b0x0.demo.switchtooptimize.newop;
+package top.b0x0.demo.switchtooptimize.p2_newop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,8 +6,9 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import top.b0x0.demo.switchtooptimize.domain.CpaSourceEnum;
 import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
+import top.b0x0.demo.switchtooptimize.domain.P2CpaSourceEnum;
+import top.b0x0.demo.switchtooptimize.p2_newop.abstractClazz.CpaCallBack;
 
 /**
  * @author musui
@@ -25,7 +26,7 @@ public class CompositeCpaCallBack implements ApplicationContextAware {
     }
 
     public CpaCallBack getCpaCallBack(String source) {
-        CpaSourceEnum cpaSourceEnum = CpaSourceEnum.valueOf(source);
+        P2CpaSourceEnum cpaSourceEnum = P2CpaSourceEnum.valueOf(source);
         return (CpaCallBack) applicationContext.getBean(cpaSourceEnum.getDefaultBeanName());
     }
 
@@ -34,7 +35,7 @@ public class CompositeCpaCallBack implements ApplicationContextAware {
             CpaCallBack callBack = getCpaCallBack(cpaUnionInfo.getSource());
             return callBack.callbackAdvertisers(cpaUnionInfo);
         } catch (Exception e) {
-            log.error("回调异常,{}", e.getMessage());
+            log.error("p2 --> 回调异常,{}", e.getMessage());
             return false;
         }
     }

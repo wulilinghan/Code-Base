@@ -3,9 +3,9 @@ package top.b0x0.demo.switchtooptimize;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import top.b0x0.demo.switchtooptimize.domain.CpaSourceEnum;
+import top.b0x0.demo.switchtooptimize.domain.P1CpaSourceEnum;
 import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
-import top.b0x0.demo.switchtooptimize.newop.CompositeCpaCallBack;
+import top.b0x0.demo.switchtooptimize.p2_newop.CompositeCpaCallBack;
 
 @SpringBootTest
 class DemoSwitchToOptimizeApplicationTests {
@@ -15,13 +15,13 @@ class DemoSwitchToOptimizeApplicationTests {
 
     @Test
     void enumTest() {
-        CpaSourceEnum[] values = CpaSourceEnum.values();
-        for (CpaSourceEnum value : values) {
+        P1CpaSourceEnum[] values = P1CpaSourceEnum.values();
+        for (P1CpaSourceEnum value : values) {
             System.out.println("value = " + value);
         }
         int length = values.length;
         System.out.println("length = " + length);
-        CpaSourceEnum unknown = CpaSourceEnum.valueOf("unknown");
+        P1CpaSourceEnum unknown = P1CpaSourceEnum.valueOf("unknown");
         System.out.println("unknown = " + unknown);
     }
 

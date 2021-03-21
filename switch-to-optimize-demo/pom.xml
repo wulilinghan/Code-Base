@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.b0x0</groupId>
-    <artifactId>demo-switch-to-optimize</artifactId>
+    <artifactId>switch-to-optimize-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo-switch-to-optimize</name>
-    <description>优化switch / if else</description>
+    <name>switch-to-optimize-demo</name>
+    <description>使用策略模式优化 switch / if else</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -32,12 +32,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <version>4.13.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <version>4.13.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.junit.platform</groupId>
