@@ -47,8 +47,8 @@ public class OSSUtils {
     static {
         Properties properties = ConfigProperties.getProperties();
         oss_profiles_active = properties.getProperty("oss.profiles.active");
-        OSS_SUFFIX = properties.getProperty("alibaba.oss.oss_suffix");
-        ENDPOINT = properties.getProperty("alibaba.oss.endpoint");
+        OSS_SUFFIX = Base64.decodeStr(properties.getProperty("alibaba.oss.oss_suffix"));
+        ENDPOINT = Base64.decodeStr(properties.getProperty("alibaba.oss.endpoint"));
         ACCESS_KEY_ID = Base64.decodeStr(properties.getProperty("alibaba.oss.accesskeyId"));
         ACCESS_KEY_SECRET = Base64.decodeStr(properties.getProperty("alibaba.oss.accessKeySecret"));
         //开发、测试环境与生产环境 bucket区分开
@@ -263,7 +263,7 @@ public class OSSUtils {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        String url = url("9ea735c6ebc24d9e94967933e0b6f781_shop1614147412933.png");
 //        System.out.println("url = " + url);
 //        URL urlTime = urlTime("9ea735c6ebc24d9e94967933e0b6f781_shop1614147412933.png");
@@ -274,5 +274,11 @@ public class OSSUtils {
 //        URL url = urlTime("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
 //        System.out.println("url = " + url);
 //        System.out.println("url = " + url("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg"));
+        long start = System.currentTimeMillis();
+        byte[] objectByteArray = getObjectByteArray("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
+//        System.out.println("Base64Encoder.encode(objectByteArray) = " + Base64Encoder.encode(objectByteArray));
+        long end = System.currentTimeMillis();
+        System.out.println("(end-start)/1000 = " + (end - start) / 1000);
+
     }
 }
