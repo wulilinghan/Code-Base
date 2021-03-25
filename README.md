@@ -1,7 +1,8 @@
 # demo-collection
 集合一些开发中常用的技术
 ## mybatis-demo 
-- 一对多查询,一二级缓存
+- 一对多查询
+- 一二级缓存测试
 ## pdf-demo
   - 数据+模板生成PDF
 ## xml-demo
