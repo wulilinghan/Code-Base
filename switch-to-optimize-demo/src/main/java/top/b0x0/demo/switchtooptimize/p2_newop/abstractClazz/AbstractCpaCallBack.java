@@ -7,7 +7,7 @@ import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
  *
  * @author musui
  */
-public abstract class CpaCallBack {
+public abstract class AbstractCpaCallBack {
 
     /**
      * 回调广告商

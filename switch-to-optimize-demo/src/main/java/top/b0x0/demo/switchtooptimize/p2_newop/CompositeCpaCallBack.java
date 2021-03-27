@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 import top.b0x0.demo.switchtooptimize.domain.CpaUnionInfo;
 import top.b0x0.demo.switchtooptimize.domain.P2CpaSourceEnum;
-import top.b0x0.demo.switchtooptimize.p2_newop.abstractClazz.CpaCallBack;
+import top.b0x0.demo.switchtooptimize.p2_newop.abstractClazz.AbstractCpaCallBack;
 
 /**
  * @author musui
@@ -25,14 +25,14 @@ public class CompositeCpaCallBack implements ApplicationContextAware {
         this.applicationContext = applicationContext;
     }
 
-    public CpaCallBack getCpaCallBack(String source) {
+    public AbstractCpaCallBack getCpaCallBack(String source) {
         P2CpaSourceEnum cpaSourceEnum = P2CpaSourceEnum.valueOf(source);
-        return (CpaCallBack) applicationContext.getBean(cpaSourceEnum.getDefaultBeanName());
+        return (AbstractCpaCallBack) applicationContext.getBean(cpaSourceEnum.getDefaultBeanName());
     }
 
     public Boolean callbackAdvertisers(CpaUnionInfo cpaUnionInfo) {
         try {
-            CpaCallBack callBack = getCpaCallBack(cpaUnionInfo.getSource());
+            AbstractCpaCallBack callBack = getCpaCallBack(cpaUnionInfo.getSource());
             return callBack.callbackAdvertisers(cpaUnionInfo);
         } catch (Exception e) {
             log.error("p2 --> 回调异常,{}", e.getMessage());
