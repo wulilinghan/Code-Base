@@ -17,9 +17,9 @@ import java.util.List;
 /**
  * @author musui
  */
-public class ProcessUtils {
+public class OSSPhotoProcessUtils {
 
-    private static final Logger log = LoggerFactory.getLogger(ProcessUtils.class);
+    private static final Logger log = LoggerFactory.getLogger(OSSPhotoProcessUtils.class);
 
     public static final String URL_ = "url";
 
@@ -35,19 +35,24 @@ public class ProcessUtils {
         try {
             Field[] fields = object.getClass().getDeclaredFields();
             for (Field field : fields) {
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
                 // 判断属性是否是List类型
                 if (field.getType() == java.util.List.class) {
                     // 获取到list的size方法
                     Method m = List.class.getDeclaredMethod("size");
                     //调用list的size方法，得到list的长度
                     int size = (Integer) m.invoke(field.get(object));
-
                     Type type = field.getGenericType();
+                    System.out.println("type.toString() = " + type.toString());
                     // ParameterizedType 泛型实例,带有<>的参数, 例如 List<Student>
                     if (type instanceof ParameterizedType) {
                         ParameterizedType pt = (ParameterizedType) type;
+                        Type[] actualTypeArguments = pt.getActualTypeArguments();
+                        System.out.println("actualTypeArguments.length = " + actualTypeArguments.length);
                         //得到对象list中实例的类型
-                        Class clz = (Class) pt.getActualTypeArguments()[0];
+                        Class clz = (Class) actualTypeArguments[0];
                         System.out.println("clz = " + clz);
                         //遍历list，调用get方法，获取list中的对象实例
                         for (int i = 0; i < size; i++) {
