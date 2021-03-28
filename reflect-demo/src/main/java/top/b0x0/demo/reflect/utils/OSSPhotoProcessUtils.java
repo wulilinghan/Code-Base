@@ -69,8 +69,9 @@ public class OSSPhotoProcessUtils {
                             }
                         }
                     }
+                } else {
+                    coreProcessing(object, field);
                 }
-                coreProcessing(object, field);
             }
         } catch (Exception e) {
             log.error("处理图片异常: {}", e.getMessage());
