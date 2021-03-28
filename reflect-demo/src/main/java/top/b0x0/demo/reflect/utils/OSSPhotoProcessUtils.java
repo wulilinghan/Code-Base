@@ -3,6 +3,7 @@ package top.b0x0.demo.reflect.utils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import top.b0x0.demo.reflect.domain.Clazz;
 import top.b0x0.demo.reflect.domain.Student;
 
@@ -12,7 +13,9 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author musui
@@ -92,23 +95,22 @@ public class OSSPhotoProcessUtils {
 
     public static void main(String[] args) {
         Student student = new Student();
-        student.setName("张三");
-        student.setAge(15);
-        student.setAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png");
+        student.setName("张三").setAge(15).setAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png");
 
         Student student2 = new Student();
-        student2.setName("李四");
-        student2.setAge(20);
-        student2.setAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png");
+        student2.setName("李四").setAge(15).setAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png");
+
+        Student student3 = new Student();
+        BeanUtils.copyProperties(student, student3);
 
         List<Student> studentList = new ArrayList<>();
         studentList.add(student);
         studentList.add(student2);
+        studentList.add(student3);
 
         Clazz clazz = new Clazz();
-        clazz.setClazzName("A班");
-        clazz.setClazzAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png");
-        clazz.setStudentList(studentList);
+        clazz.setClazzName("A班").setClazzAvatarUrl("c763e8191645441a914b1bf2fe602c12_shop1612358526684.png")
+                .setStudentList(studentList);
 
 
 //        Field[] fields = clazz.getClass().getDeclaredFields();
@@ -118,8 +120,15 @@ public class OSSPhotoProcessUtils {
 //        String name = type.getName();
 //        System.out.println("name = " + name);
 
-        processPhoto(clazz);
+//        processPhoto(clazz);
 
-        System.out.println("clazz = " + clazz);
+//        System.out.println("clazz = " + clazz);
+
+        Set<Student> set = new HashSet<>(studentList);
+        for (Student stu : set) {
+            System.out.println("stu = " + stu);
+        }
+
+
     }
 }

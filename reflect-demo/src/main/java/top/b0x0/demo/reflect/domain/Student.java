@@ -1,11 +1,13 @@
 package top.b0x0.demo.reflect.domain;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * @author musui
  */
 @Data
+@Accessors(chain = true)
 public class Student {
     public String name;
     private Integer age;
