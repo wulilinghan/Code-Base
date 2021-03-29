@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <!-- mybatis-config 有严格的标签顺序 顺序有问题会报错-->
+
+    <properties resource="db.properties">
+        <!-- 这是设置优先级比较低的默认属性 -->
+        <property name="username" value="root" />
+        <property name="password" value="root@123" />
+    </properties>
+
+    <!-- 全局配置信息 -->
+    <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 一级缓存  SESSION或者STATEMENT -->
+        <setting name="localCacheScope" value="SESSION"/>
+        <!-- 二级缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <typeAliases>
+        <!-- 配置别名信息，在映射配置文件中可以直接使用Customer这个别名
+            代替org.example.domain.Customer这个类 -->
+        <typeAlias type="top.b0x0.demo.infrastructure.mybatis.domain.Customer" alias="Customer"/>
+        <typeAlias type="top.b0x0.demo.infrastructure.mybatis.domain.Address" alias="Address"/>
+        <typeAlias type="top.b0x0.demo.infrastructure.mybatis.domain.Order" alias="Order"/>
+        <typeAlias type="top.b0x0.demo.infrastructure.mybatis.domain.OrderItem" alias="OrderItem"/>
+        <typeAlias type="top.b0x0.demo.infrastructure.mybatis.domain.Product" alias="Product"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 配置映射配置文件的位置 -->
+    <mappers>
+        <mapper resource="mapper/CustomerMapper.xml"/>
+        <mapper resource="mapper/AddressMapper.xml"/>
+        <mapper resource="mapper/OrderItemMapper.xml"/>
+        <mapper resource="mapper/OrderMapper.xml"/>
+        <mapper resource="mapper/ProductMapper.xml"/>
+    </mappers>
+</configuration>
