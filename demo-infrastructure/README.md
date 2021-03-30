@@ -19,3 +19,6 @@
 ## io-demo
   - 阿里OSS文件操作
   - 使用thumbnailator处理图片(压缩，旋转，裁切，加水印等)
+## designPattern
+  - factory 工厂模式
+  - observer 观察者模式
