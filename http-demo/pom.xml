@@ -4,14 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.b0x0.demo</groupId>
-    <artifactId>pdf-demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>pdf-demo</name>
-    <description>pdf Demo</description>
+    <artifactId>http-demo</artifactId>
+    <version>1.0.0</version>
+    <name>http-demo</name>
+    <packaging>jar</packaging>
+
+    <description>restTemplate, WebClient等http工具使用</description>
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.4.4</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -19,7 +20,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>2.4.4</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -27,24 +28,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <artifactId>junit</artifactId>
-            <groupId>junit</groupId>
-            <scope>test</scope>
-            <version>4.13.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>5.5.8</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -60,31 +43,24 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- pdf 解析 start-->
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>itextpdf</artifactId>
-            <version>5.5.10</version>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.5.8</version>
         </dependency>
-        <!--        <dependency>
-                    <groupId>com.itextpdf</groupId>
-                    <artifactId>itext-asian</artifactId>
-                    <version>5.2.0</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.bouncycastle</groupId>
-                    <artifactId>bcprov-jdk15on</artifactId>
-                    <version>1.54</version>
-                </dependency>-->
-        <!-- pdf 解析 end-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.74</version>
+        </dependency>
     </dependencies>
 
     <build>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.4</version>
                 <configuration>
                     <excludes>
                         <exclude>
@@ -92,11 +68,20 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                    <!--                    <nonFilteredFileExtensions>
-                                            <nonFilteredFileExtension>nonFilteredFileExtension>pdf</nonFilteredFileExtension>
-                                        </nonFilteredFileExtensions>-->
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 
