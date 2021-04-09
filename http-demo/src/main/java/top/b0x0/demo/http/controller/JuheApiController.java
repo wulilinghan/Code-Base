@@ -12,6 +12,8 @@ import top.b0x0.demo.http.common.JuheResponse;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 import static top.b0x0.demo.http.common.CommonConstants.*;
 
@@ -33,16 +35,19 @@ public class JuheApiController {
     static DateTimeFormatter MD_FORMATTER = DateTimeFormatter.ofPattern("M/d");
 
     @GetMapping("t1")
-    public void test1() {
+    public Map<String, Object> test1() {
         String todayDate = MD_FORMATTER.format(LocalDate.now());
         JuheResponse juheResponse = todayOfHistory(todayDate);
-
         System.out.println("juheResponse = " + juheResponse);
 
         String phone = "18373342114";
         JuheResponse juheResponse1 = getPhoneAttribution(phone);
-
         System.out.println("juheResponse1 = " + juheResponse1);
+
+        Map<String, Object> map = new HashMap<>(2);
+        map.put("juheResponse1", juheResponse);
+        map.put("juheResponse2", juheResponse1);
+        return map;
     }
 
     private JuheResponse getPhoneAttribution(String phone) {

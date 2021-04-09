@@ -32,14 +32,14 @@ public class UploadController {
         for (MultipartFile file : files) {
             if (!file.isEmpty() && file.getSize() > 0) {
                 String fileName = file.getOriginalFilename();
-                String sysOs = SysEnvUtils.SYS_OS;
+                String sysOs = SysEnvUtils.SYS_OS_NAME;
                 File folder;
-                if (sysOs.toLowerCase().startsWith(SysEnvUtils.SYS_WIN)) {
-                    folder = FileUtil.mkdir("D:\\test\\upload");
+                if (sysOs != null && sysOs.toLowerCase().startsWith(SysEnvUtils.SYS_WIN)) {
+                    folder = FileUtil.mkdir("D:/test/upload");
                 } else {
-                    folder = FileUtil.mkdir("/home/upload/");
+                    folder = FileUtil.mkdir("/home/upload");
                 }
-                String uploadFileName = folder + "\\" + fileName;
+                String uploadFileName = folder + "/" + fileName;
                 file.transferTo(new File(uploadFileName));
                 log.info("文件:{} 上传路径:{} 上传成功...", fileName, folder);
                 fileNameList.add(uploadFileName);

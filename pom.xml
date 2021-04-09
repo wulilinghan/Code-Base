@@ -23,6 +23,7 @@
         <module>reflect-demo</module>
         <module>switch-to-optimize-demo</module>
         <module>xml-demo</module>
+        <module>http-demo</module>
     </modules>
 
     <build>
@@ -35,7 +36,6 @@
                         <exclude>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-
                         </exclude>
                     </excludes>
                 </configuration>
