@@ -88,6 +88,21 @@ public class OSSUtils {
     }
 
     /**
+     * 使用流的当时上传文件
+     * 如想上传指定bucket_name下的文件夹, 在文件名加上文件路径即可
+     * 例如: 想将aaa.png文件上传至 dev-bucket 下的 mydoc 文件夹下
+     * 传入参数fileName为 mydoc/aaa.png
+     *
+     * @param inputStream /
+     * @param fileName    /
+     */
+    public static void uploadFileByInputStream(InputStream inputStream, String fileName) {
+        OSS ossClient = new OSSClientBuilder().build(ENDPOINT, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
+        ossClient.putObject(BUCKET_NAME, fileName, inputStream);
+        ossClient.shutdown();
+    }
+
+    /**
      * 匿名直连访问地址
      *
      * @param objectName 文件名 xxx.png
@@ -274,11 +289,17 @@ public class OSSUtils {
 //        URL url = urlTime("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
 //        System.out.println("url = " + url);
 //        System.out.println("url = " + url("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg"));
+
+ /*
         long start = System.currentTimeMillis();
         byte[] objectByteArray = getObjectByteArray("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
 //        System.out.println("Base64Encoder.encode(objectByteArray) = " + Base64Encoder.encode(objectByteArray));
         long end = System.currentTimeMillis();
         System.out.println("(end-start)/1000 = " + (end - start) / 1000);
+*/
+        byte[] objectByteArray = getObjectByteArray("2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
+        InputStream inputStream = new ByteArrayInputStream(objectByteArray);
+        uploadFileByInputStream(inputStream, "mydoc/2021二零二一牛年新春快乐4k高清壁纸_彼岸图网.jpg");
 
     }
 }
