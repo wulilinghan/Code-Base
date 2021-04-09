@@ -1,5 +1,6 @@
-package top.b0x0.demo.http.controller;
+package top.b0x0.demo.http.controller.provide;
 
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("p")
+@Api(tags = "Post方法")
 public class PostController {
 
     @PostMapping("p1")
@@ -25,7 +27,6 @@ public class PostController {
         long end = System.currentTimeMillis();
         return new JuheResponse().setResult("P1执行完成").setResultcode("200").setResult("zhi xing shi jian:" + (end - start) / 1000 + "s");
     }
-
 
     @PostMapping("p2")
     public JuheResponse p2() throws InterruptedException {

@@ -30,6 +30,13 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- WebClient是从Spring WebFlux 5.0版本开始提供的一个非阻塞的基于响应式编程的进行Http请求的客户端工具。它的响应式编程的基于Reactor的。
+        WebClient中提供了标准Http请求方式对应的get、post、put、delete等方法，可以用来发起相应的请求。 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

@@ -1,6 +1,7 @@
 package top.b0x0.demo.http.controller;
 
 import cn.hutool.core.io.FileUtil;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +21,9 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("file")
-public class UploadController {
-    private static final Logger log = LoggerFactory.getLogger(UploadController.class);
+@Api(tags = "文件上传")
+public class FileController {
+    private static final Logger log = LoggerFactory.getLogger(FileController.class);
 
     @PostMapping("/up1")
     public Object fileUpload(@RequestParam("file") MultipartFile[] files) throws Exception {

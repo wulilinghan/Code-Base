@@ -1,5 +1,8 @@
 package top.b0x0.demo.http.common;
 
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * @author TANG
  * @since 2021-04-08
@@ -14,14 +17,21 @@ public class SysEnvUtils {
         System.out.println("SYS_OS = " + SYS_OS_NAME);
     }
 
-    public static void main(String[] args) {
-//        Map<String, String> envMap = System.getenv();
-//        for (String key : envMap.keySet()) {
-//            String val = envMap.get(key);
-//            String x = key + " = " + val;
-//            System.out.println(x);
-//        }
-//        System.out.println("System.getProperty(\"OS\") = " + System.getProperty("OS"));
-//        System.out.println("System.getenv(\"OS\") = " + System.getenv("OS"));
-    }
+/*    public static void main(String[] args) {
+*//*
+        Map<String, String> envMap = System.getenv();
+        for (String key : envMap.keySet()) {
+            String val = envMap.get(key);
+            String x = key + " = " + val;
+            System.out.println(x);
+        }
+        System.out.println("System.getProperty(\"OS\") = " + System.getProperty("OS"));
+        System.out.println("System.getenv(\"OS\") = " + System.getenv("OS"));
+*//*
+
+        Properties properties = System.getProperties();
+        for (Object key : properties.keySet()) {
+            System.out.println(key + " = " + properties.get(key));
+        }
+    }*/
 }
