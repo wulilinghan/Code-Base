@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 import top.b0x0.demo.http.common.JuheResponse;
 import top.b0x0.demo.http.common.R;
 
@@ -111,12 +112,37 @@ public class ConsumerController {
         return JSON.parseObject(object, JuheResponse.class);
     }
 
-    /****************************** webClient **********************************/
+    /** **************************** WebClient **********************************/
 
+    /**
+     * Spring5带来了新的响应式web开发框架WebFlux，同时，也引入了新的HttpClient框架WebClient。WebClient是Spring5中引入的执行 HTTP 请求的非阻塞、反应式客户端。
+     * 它对同步和异步以及流方案都有很好的支持，WebClient发布后，RestTemplate将在将来版本中弃用，并且不会向前添加主要新功能。
+     */
     @GetMapping("w1")
     public R w1() {
         WebClient webClient = WebClient.create(RE_HTTP);
-        WebClient.RequestHeadersSpec<?> g1Resp = webClient.get().uri("/g/g1");
-        return R.ok(g1Resp);
+        Mono<R> bodyToMono = webClient.get().uri("/get/sum?endNum={num}", 1000000000).retrieve().bodyToMono(R.class);
+        return bodyToMono.block();
+    }
+
+    @GetMapping("w3")
+    public R w3() {
+        Mono<String> resp = WebClient.create()
+                .get()
+                //多个参数也可以直接放到map中,参数名与placeholder对应上即可
+                //使用占位符
+                .uri("http://www.baidu.com/s?wd={key}&other={another}", "深圳天气", "test")
+                .retrieve()
+                .bodyToMono(String.class);
+        log.info("result:{}", resp.block());
+        return R.ok(resp);
+    }
+
+    @GetMapping("w2")
+    public R w2() {
+        WebClient webClient = WebClient.create(RE_HTTP);
+        Mono<R> bodyToMono = webClient.get().uri("/g/g2").retrieve().bodyToMono(R.class);
+        R block = bodyToMono.block();
+        return block;
     }
 }

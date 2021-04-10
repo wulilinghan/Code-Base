@@ -1,7 +1,8 @@
-package top.b0x0.demo.http.controller;
+package top.b0x0.demo.http.controller.provide;
 
 import cn.hutool.core.io.FileUtil;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +27,7 @@ public class FileController {
     private static final Logger log = LoggerFactory.getLogger(FileController.class);
 
     @PostMapping("/up1")
+    @ApiOperation("文件上传")
     public Object fileUpload(@RequestParam("file") MultipartFile[] files) throws Exception {
         if (files == null) {
             return "文件上传错误, 服务端未拿到上传的文件！";

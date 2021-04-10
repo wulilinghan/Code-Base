@@ -1,4 +1,4 @@
-package top.b0x0.demo.http.common;
+package top.b0x0.demo.http.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.ClientHttpRequestFactory;

@@ -18,11 +18,29 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class R implements Serializable {
     private static final long serialVersionUID = 2347014227849421617L;
+
     private String message;
     private Integer code;
     private Object data;
+    private Long timestamp = System.currentTimeMillis();
+
+    public static R ok() {
+        return new R().setCode(200);
+    }
 
     public static R ok(Object data) {
         return new R().setCode(200).setMessage("").setData(data);
+    }
+
+    public static R fail(String message) {
+        return new R().setCode(400).setMessage(message);
+    }
+
+    public static R fail(String message, Object data) {
+        return new R().setCode(400).setMessage(message).setData(data);
+    }
+
+    public static R notAuth() {
+        return new R().setCode(401).setMessage("未认证或认证信息异常");
     }
 }
