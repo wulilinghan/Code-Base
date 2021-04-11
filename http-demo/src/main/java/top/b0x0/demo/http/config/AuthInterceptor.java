@@ -1,6 +1,5 @@
 package top.b0x0.demo.http.config;
 
-import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import top.b0x0.demo.http.common.R;
@@ -9,7 +8,6 @@ import top.b0x0.demo.http.common.UserAuthUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,13 +26,17 @@ public class AuthInterceptor implements HandlerInterceptor {
         response.setCharacterEncoding("utf-8");
         String token = request.getHeader("token");
         if (request.getCookies() == null) {
-            PrintWriter writer = response.getWriter();
-            writer.append(JSON.toJSONString(notAuth));
+//            PrintWriter writer = response.getWriter();
+//            writer.append(JSON.toJSONString(notAuth));
+            log.warn("cookies is null....");
+            response.sendRedirect("/auth/401");
             return false;
         }
         if (request.getCookies().length <= 0) {
-            PrintWriter writer = response.getWriter();
-            writer.append(JSON.toJSONString(notAuth));
+//            PrintWriter writer = response.getWriter();
+//            writer.append(JSON.toJSONString(notAuth));
+            log.warn("cookies.length <= 0....");
+            response.sendRedirect("/auth/401");
             return false;
         }
         Optional<Cookie> optionalCookie = Arrays.stream(request.getCookies()).filter(e -> "JSESSIONID".equals(e.getName())).findAny();
@@ -46,8 +48,10 @@ public class AuthInterceptor implements HandlerInterceptor {
         if (UserAuthUtils.authToken(authMap)) {
             return true;
         }
-        PrintWriter writer = response.getWriter();
-        writer.append(JSON.toJSONString(notAuth));
+//        PrintWriter writer = response.getWriter();
+//        writer.append(JSON.toJSONString(notAuth));
+        response.sendRedirect("/auth/401");
         return false;
     }
+
 }

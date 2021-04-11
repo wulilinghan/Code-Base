@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import top.b0x0.demo.http.common.R;
 import top.b0x0.demo.http.common.SysEnvUtils;
 
 import java.io.File;
@@ -28,9 +29,9 @@ public class FileController {
 
     @PostMapping("/up1")
     @ApiOperation("文件上传")
-    public Object fileUpload(@RequestParam("file") MultipartFile[] files) throws Exception {
+    public R fileUpload(@RequestParam("file") MultipartFile[] files, @RequestParam("isErr") String err) throws Exception {
         if (files == null) {
-            return "文件上传错误, 服务端未拿到上传的文件！";
+            return R.fail("文件上传错误, 服务端未拿到上传的文件！");
         }
         List<String> fileNameList = new ArrayList<>();
         for (MultipartFile file : files) {
@@ -44,11 +45,14 @@ public class FileController {
                     folder = FileUtil.mkdir("/home/upload");
                 }
                 String uploadFileName = folder + "/" + fileName;
+                if ("isErr".equals(err)) {
+                    int i = 1 / 0;
+                }
                 file.transferTo(new File(uploadFileName));
                 log.info("文件:{} 上传路径:{} 上传成功...", fileName, folder);
                 fileNameList.add(uploadFileName);
             }
         }
-        return fileNameList;
+        return R.ok(fileNameList);
     }
 }

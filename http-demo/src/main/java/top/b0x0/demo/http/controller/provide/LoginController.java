@@ -35,4 +35,9 @@ public class LoginController {
     public R getInfo() {
         return R.ok(UserAuthUtils.USER_AUTH.get());
     }
+
+    @GetMapping("401")
+    public R notAuth() {
+        return R.notAuth();
+    }
 }
