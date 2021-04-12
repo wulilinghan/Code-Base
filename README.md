@@ -25,6 +25,8 @@
 #### io-demo 文件操作
 - 添加阿里OSS文件操作工具类
 - 使用thumbnailator处理图片(压缩，旋转，裁切，加水印等)
+- 多个文件打包成ZIP压缩包 /d1 /d2
+- 多文件边压缩边下载 /d3
 
 #### design-pattern-demo 设计模式
 - factory 工厂模式
