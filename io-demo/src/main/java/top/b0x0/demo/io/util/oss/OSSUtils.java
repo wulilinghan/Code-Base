@@ -1,4 +1,4 @@
-package top.b0x0.demo.io.oss;
+package top.b0x0.demo.io.util.oss;
 
 import cn.hutool.core.codec.Base64;
 import cn.hutool.core.io.FileUtil;
