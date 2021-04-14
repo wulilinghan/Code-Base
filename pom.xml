@@ -4,14 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.b0x0.demo</groupId>
-    <artifactId>demo-collection</artifactId>
+    <artifactId>infrastructure-develop</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
     <name>${project.artifactId}</name>
 
     <packaging>pom</packaging>
 
-    <description>demo-collection</description>
+    <description>集合一些开发中常用的技术</description>
 
     <modules>
         <module>design-pattern-demo</module>
