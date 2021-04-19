@@ -71,11 +71,7 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <artifactId>hutool-all</artifactId>
-            <groupId>cn.hutool</groupId>
-            <version>5.5.8</version>
-        </dependency>
+
         <!-- Thumbnailator包，基于Java自带的图片IO流，处理效率很高；
             但是如果需要处理HEIC等格式，还是需要ImageMagick这样的系统工具包支持：先系统安装ImageMagick，然后Java调用API。
             通常情况下，Thumbnailator和webp-imageio-core配合，已经可以满足绝大多数Java创建的工程需求。 -->
@@ -84,6 +80,23 @@
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
             <version>0.4.14</version>
+        </dependency>
+        <!-- poi -->
+        <dependency>
+            <artifactId>hutool-all</artifactId>
+            <groupId>cn.hutool</groupId>
+            <version>5.5.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+        <!-- poi-tl -->
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl</artifactId>
+            <version>1.8.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -99,6 +112,26 @@
             <artifactId>junit-platform-launcher</artifactId>
             <groupId>org.junit.platform</groupId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+        <!-- mybatis-plus -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

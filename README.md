@@ -24,15 +24,21 @@
 
 #### io-demo 文件操作
 - 添加阿里OSS文件操作工具类
+  - 上传下载
 - 使用thumbnailator处理图片(压缩，旋转，裁切，加水印等)
-- 多个文件打包成ZIP压缩包 /d1 /d2
-- 多文件边压缩边下载 /d3
+- Zip操作
+  - 多个文件打包成ZIP压缩包
+  - 多文件边压缩边下载
+- Excel操作
+  - 导入导出
+- Word操作
+  - 模板填充数据  (导出数据库词典
 
 #### design-pattern-demo 设计模式
 - factory 工厂模式
 - observer 观察者模式
 
 #### http-demo
-- restTemplate
-- webClient
+- RestTemplate
+- WebClient
 
