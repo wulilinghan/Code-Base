@@ -111,7 +111,7 @@ public class FileExcelController {
             }
         }
 
-        List<Object> result = new ArrayList<Object>();
+        List<Object> result = new ArrayList<>();
         for (MultipartFile multipartFile : files) {
             //通过创建临时文件将 MultipartFile转为File
             File file = null;
@@ -121,15 +121,16 @@ public class FileExcelController {
                 String[] filename = originalFilename.split("\\.");
                 file = File.createTempFile(filename[0], filename[1]);
                 multipartFile.transferTo(file);
-                file.deleteOnExit();
+                ExcelReader reader = ExcelUtil.getReader(file);
+                // 从第三行数据开始读
+                // 按照自己需要更改参数
+                List<List<Object>> read = reader.read(2);
+                result.add(read);
+                boolean delete = file.delete();
+                System.out.println("delete = " + delete);
             } catch (IOException e) {
                 log.error("MultipartFile转成File异常:{}", e.getMessage());
             }
-            ExcelReader reader = ExcelUtil.getReader(file);
-            // 从第三行数据开始读
-            // 按照自己需要更改参数
-            List<List<Object>> read = reader.read(2);
-            result.add(read);
         }
         return R.ok(result);
     }
