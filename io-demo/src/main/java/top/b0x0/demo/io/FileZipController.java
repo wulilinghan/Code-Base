@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.b0x0.demo.io.util.ZipUtils;
+import top.b0x0.demo.io.util.CompressUtils;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -107,7 +107,7 @@ public class FileZipController {
 
         for (String path : urlList) {
             String fileName = UUID.randomUUID() + ".png";
-            InputStream inputStream = ZipUtils.getIsFromUrl(path);
+            InputStream inputStream = CompressUtils.getIsFromUrl(path);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];
             int len;
@@ -221,6 +221,6 @@ public class FileZipController {
     public void download4(HttpServletResponse response) throws IOException {
 //        ClassPathResource resource = new ClassPathResource("images/20210413160128024.zip");
         File resource = new File("d:/20210413160128024.zip");
-        ZipUtils.downloadFile(resource, response);
+        CompressUtils.downloadFile(resource, response);
     }
 }
