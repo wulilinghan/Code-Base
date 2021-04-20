@@ -29,6 +29,9 @@
 - Zip操作
   - 多个文件打包成ZIP压缩包
   - 多文件边压缩边下载
+- CompressUtils 文件解压缩
+  - 压缩: zip, tar, tar.gz
+  - 解压: zip, tar.gz, tgz, tar.bz2
 - Excel操作
   - 导入导出
 - Word操作
