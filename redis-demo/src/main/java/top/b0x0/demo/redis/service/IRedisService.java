@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public interface IRedisService {
 
     /**
-     * tryLock
+     * 上锁
      *
      * @param lockKey    锁
      * @param value      对应的值
@@ -17,5 +17,14 @@ public interface IRedisService {
      * @param timeUnit   时间单位
      * @return boolean
      */
-    Boolean tryLock(String lockKey, String value, long expireTime, TimeUnit timeUnit);
+    boolean tryLock(String lockKey, String value, long expireTime, TimeUnit timeUnit);
+
+    /**
+     * 释放锁
+     *
+     * @param lockKey 锁
+     * @param value   对应的值
+     * @return boolean
+     */
+    boolean unLock(String lockKey, String value);
 }

@@ -5,5 +5,8 @@ package top.b0x0.demo.redis.domain;
  * @since 2021-04-23
  */
 public class RedisKey {
-    public static final String ORDER_LOCK_KEY = "orderLockKey";
+    /**
+     * orderLock:[machineId]
+     */
+    public static final String ORDER_LOCK_KEY = "orderLock:%s";
 }
