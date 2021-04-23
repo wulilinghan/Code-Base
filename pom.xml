@@ -23,8 +23,18 @@
         <module>switch-to-optimize-demo</module>
         <module>xml-demo</module>
         <module>http-demo</module>
+        <module>redis-demo</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.5.8</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>

@@ -103,6 +103,7 @@
             <groupId>org.junit.platform</groupId>
             <scope>test</scope>
         </dependency>
+        <!-- swagger -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>

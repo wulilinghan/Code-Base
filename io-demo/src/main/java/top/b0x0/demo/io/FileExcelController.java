@@ -46,7 +46,7 @@ public class FileExcelController {
         list.add(SysUser.builder().userId(7777L).username("zhangsan5").phone("17688888882").enabled(0).build());
 
         // 通过工具类创建writer，默认创建xls格式
-        ExcelWriter writer = ExcelUtil.getWriter();
+        ExcelWriter writer = ExcelUtil.getWriter(true);
 
         //自定义标题别名
         writer.addHeaderAlias("username", "姓名");
