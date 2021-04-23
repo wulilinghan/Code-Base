@@ -1,4 +1,4 @@
-package top.b0x0.demo.redis.domain;
+package top.b0x0.demo.distributedLock.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

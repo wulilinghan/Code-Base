@@ -23,7 +23,7 @@
         <module>switch-to-optimize-demo</module>
         <module>xml-demo</module>
         <module>http-demo</module>
-        <module>redis-demo</module>
+        <module>distributed-lock-demo</module>
     </modules>
 
     <dependencyManagement>

@@ -1,4 +1,4 @@
-package top.b0x0.demo.redis.service;
+package top.b0x0.demo.distributedLock.redis.service;
 
 import java.util.concurrent.TimeUnit;
 

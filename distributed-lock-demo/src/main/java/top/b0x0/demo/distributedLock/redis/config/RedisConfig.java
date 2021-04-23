@@ -1,4 +1,4 @@
-package top.b0x0.demo.redis.config;
+package top.b0x0.demo.distributedLock.redis.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.cache.annotation.CachingConfigurerSupport;

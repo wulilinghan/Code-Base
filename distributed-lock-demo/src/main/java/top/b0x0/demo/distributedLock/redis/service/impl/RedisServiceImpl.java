@@ -1,10 +1,10 @@
-package top.b0x0.demo.redis.service.impl;
+package top.b0x0.demo.distributedLock.redis.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import top.b0x0.demo.redis.service.IRedisService;
+import top.b0x0.demo.distributedLock.redis.service.IRedisService;
 
 import java.util.concurrent.TimeUnit;
 

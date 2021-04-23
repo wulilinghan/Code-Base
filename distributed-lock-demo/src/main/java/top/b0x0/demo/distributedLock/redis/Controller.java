@@ -1,4 +1,4 @@
-package top.b0x0.demo.redis;
+package top.b0x0.demo.distributedLock.redis;
 
 import cn.hutool.core.thread.ConcurrencyTester;
 import cn.hutool.core.thread.ThreadUtil;
@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.b0x0.demo.redis.domain.R;
-import top.b0x0.demo.redis.service.IRedisService;
+import top.b0x0.demo.distributedLock.domain.R;
+import top.b0x0.demo.distributedLock.domain.RedisKey;
+import top.b0x0.demo.distributedLock.redis.service.IRedisService;
 
 import java.util.concurrent.TimeUnit;
 
-import static top.b0x0.demo.redis.domain.RedisKey.ORDER_LOCK_KEY;
 
 /**
  * @author TANG
@@ -20,7 +20,7 @@ import static top.b0x0.demo.redis.domain.RedisKey.ORDER_LOCK_KEY;
  */
 @Slf4j
 @RestController
-@RequestMapping("lock")
+@RequestMapping("lock/redis")
 public class Controller {
 
     @Autowired
@@ -51,7 +51,7 @@ public class Controller {
     private void orderTrade(String orderId) {
         String machineId = "1";
         try {
-            Boolean tryLock = redisService.tryLock(String.format(ORDER_LOCK_KEY, machineId), orderId, 30, TimeUnit.SECONDS);
+            Boolean tryLock = redisService.tryLock(String.format(RedisKey.ORDER_LOCK_KEY, machineId), orderId, 30, TimeUnit.SECONDS);
             if (Boolean.TRUE.equals(tryLock)) {
                 System.out.printf("currentTimeMillis: [%s], 订单号: [%s] ---------上锁成功-------- %n", System.currentTimeMillis(), orderId);
             } else {

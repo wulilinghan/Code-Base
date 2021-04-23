@@ -1,4 +1,4 @@
-package top.b0x0.demo.redis;
+package top.b0x0.demo.distributedLock.redis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
