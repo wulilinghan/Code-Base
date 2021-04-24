@@ -21,7 +21,7 @@ public class RedisServiceImpl implements IRedisService {
     @Override
     public boolean tryLock(String lockKey, String value, long expireTime, TimeUnit timeUnit) {
         try {
-            //  setnx + expire
+            //  setnx(SET if Not Exists) + expire
             Boolean setIfAbsent = redisTemplate.opsForValue().setIfAbsent(lockKey, value, expireTime, timeUnit);
             if (Boolean.TRUE.equals(setIfAbsent)) {
                 return true;
