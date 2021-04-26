@@ -3,9 +3,7 @@ package top.b0x0.demo.distributedLock.zookeeper.locks;
 
 import cn.hutool.core.thread.ThreadUtil;
 import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
-import org.apache.curator.retry.ExponentialBackoffRetry;
 import top.b0x0.demo.distributedLock.zookeeper.util.ZkUtils;
 
 /**
@@ -14,8 +12,8 @@ import top.b0x0.demo.distributedLock.zookeeper.util.ZkUtils;
  * curator 的几种锁方案 ：
  * <pre>
  *    1、InterProcessMutex：分布式可重入排它锁
- *    2、InterProcessSemaphoreMutex：分布式排它锁
- *    3、InterProcessReadWriteLock：分布式读写锁
+ *    2、InterProcessSemaphoreMutex：分布式不可重入排它锁
+ *    3、InterProcessReadWriteLock：分布式可重入读写锁
  * </pre>
  *
  * @author musui
