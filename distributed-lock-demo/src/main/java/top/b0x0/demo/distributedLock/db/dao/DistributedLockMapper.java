@@ -1,14 +1,12 @@
-package top.b0x0.demo.distributedLock.db;
+package top.b0x0.demo.distributedLock.db.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.apache.ibatis.annotations.Mapper;
 import top.b0x0.demo.distributedLock.domain.DistributedLock;
 
 /**
  * @author TANG
  * @since 2021/04/26
  */
-@Mapper
 public interface DistributedLockMapper extends BaseMapper<DistributedLock> {
 
     /**
