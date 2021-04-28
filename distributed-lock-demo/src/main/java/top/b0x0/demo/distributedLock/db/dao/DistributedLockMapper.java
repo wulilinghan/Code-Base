@@ -15,7 +15,7 @@ public interface DistributedLockMapper extends BaseMapper<DistributedLock> {
      * @param lock /
      * @return /
      */
-    DistributedLock getLockByResourceName(DistributedLock lock);
+    DistributedLock getLockByResource(DistributedLock lock);
 
     /**
      * 上锁
@@ -32,4 +32,20 @@ public interface DistributedLockMapper extends BaseMapper<DistributedLock> {
      * @return /
      */
     int releaseLock(DistributedLock lock);
+
+    /**
+     * 新增锁数据
+     *
+     * @param lock /
+     * @return /
+     */
+    int insertLock(DistributedLock lock);
+
+    /**
+     * 释放锁
+     *
+     * @param resource /
+     * @return /
+     */
+    int delByResource(String resource);
 }

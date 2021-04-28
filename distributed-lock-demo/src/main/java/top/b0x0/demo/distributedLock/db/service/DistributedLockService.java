@@ -19,8 +19,8 @@ public interface DistributedLockService {
     /**
      * 释放锁
      *
-     * @param distributedLock /
+     * @param resource /
      * @return /
      */
-    boolean unlock(DistributedLock distributedLock);
+    boolean unlock(String resource);
 }

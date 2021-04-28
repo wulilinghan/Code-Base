@@ -2,28 +2,53 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="top.b0x0.demo.distributedLock.db.dao.DistributedLockMapper">
 
+    <resultMap id="BaseEntityResultMap" type="top.b0x0.demo.distributedLock.domain.DistributedLock">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="resource" column="resource" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+        <result property="lockStatus" column="lock_status" jdbcType="VARCHAR"/>
+    </resultMap>
+    <delete id="delByResource">
+        delete
+        from t_distributed_lock
+        where resource = #{resource}
+    </delete>
+
     <!-- 使用排它锁（for update） -->
-    <select id="getLockByResourceName" resultType="top.b0x0.demo.distributedLock.domain.DistributedLock"
+    <select id="getLockByResource" resultType="top.b0x0.demo.distributedLock.domain.DistributedLock"
             parameterType="top.b0x0.demo.distributedLock.domain.DistributedLock">
         SELECT *
-        FROM t_sys_distributedlock
-        <!-- where resource_name = #{resourceName} for update; -->
-        where resource_name = #{resourceName};
+        FROM t_distributed_lock
+        where resource = #{resource} for update
     </select>
+
     <update id="locked" parameterType="top.b0x0.demo.distributedLock.domain.DistributedLock">
-        update t_sys_distributedlock
-        set lock_status = 'LOCK',
-        expiration_time = #{expirationTime}
+        update t_distributed_lock
+        set lock_status = 'LOCK'
         <!-- version     = version + 1 -->
-        where resource_name = #{resourceName}
+        where resource = #{resource}
         <!-- and version = 0;  -->
     </update>
     <update id="releaseLock" parameterType="top.b0x0.demo.distributedLock.domain.DistributedLock">
-        update t_sys_distributedlock
+        update t_distributed_lock
         set lock_status = 'UNLOCK'
         <!--  version     = version - 1  -->
-        where resource_name = #{resourceName}
+        where resource = #{resource}
         <!-- and version = 1; -->
     </update>
+
+    <insert id="insertLock" keyProperty="id" parameterType="top.b0x0.demo.distributedLock.domain.DistributedLock">
+        insert
+        ignore t_distributed_lock(resource, description, version, lock_status, create_time)
+        values (
+        #{resource},
+        #{description},
+        #{version},
+        #{lockStatus},
+        #{createTime}
+        )
+    </insert>
 
 </mapper>
