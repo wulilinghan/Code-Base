@@ -161,6 +161,9 @@ public class RestTemplateTest {
         httpHeaders.set(HttpHeaders.COOKIE, "JSESSIONID=" + JSESSIONID);
         httpHeaders.set("token", TOKEN);
 
+        // 图片链接
+        // 转成FileSystemResource
+        // FileSystemResource resource = new FileSystemResource(new File(fileLocal));
         MultiValueMap<String, Object> paramMap = new LinkedMultiValueMap<>();
         paramMap.add("file", new ClassPathResource("yuque_diagram.jpg"));
         paramMap.add("file", new ClassPathResource("线程类图.png"));
