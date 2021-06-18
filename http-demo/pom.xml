@@ -5,7 +5,7 @@
 
     <groupId>top.b0x0.demo</groupId>
     <artifactId>http-demo</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>http-demo</name>
     <packaging>jar</packaging>
 
