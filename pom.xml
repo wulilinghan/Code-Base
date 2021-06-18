@@ -24,7 +24,7 @@
         <module>xml-demo</module>
         <module>http-demo</module>
         <module>distributed-lock-demo</module>
-        <module>circular-dependencies-demo</module>
+        <module>circular-reference-demo</module>
     </modules>
 
     <dependencyManagement>

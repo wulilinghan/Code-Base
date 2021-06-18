@@ -62,6 +62,21 @@ public class OSSUtils {
     }
 
     /**
+     * 判断文件是否存在阿里OSS中
+     *
+     * @param objectName exampleobject.txt
+     * @return /
+     */
+    public static boolean doesObjectExist(String objectName) {
+        // 创建OSSClient实例。
+        OSS ossClient = new OSSClientBuilder().build(ENDPOINT, ACCESS_KEY_ID, ACCESS_KEY_SECRET);
+        // 判断文件是否存在。如果返回值为true，则文件存在，否则存储空间或者文件不存在。
+        boolean found = ossClient.doesObjectExist(BUCKET_NAME, objectName);
+        ossClient.shutdown();
+        return found;
+    }
+
+    /**
      * 构建OSSClient示例
      *
      * @return OSSClient
