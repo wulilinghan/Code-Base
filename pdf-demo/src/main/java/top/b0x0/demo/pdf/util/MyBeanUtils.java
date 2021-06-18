@@ -1,10 +1,14 @@
 package top.b0x0.demo.pdf.util;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.function.Supplier;
 
 /**
  * @author TANG
@@ -33,4 +37,38 @@ public class MyBeanUtils {
     public static void copyPropertiesIgnoreNull(Object source, Object target) {
         org.springframework.beans.BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
     }
+
+    /**
+     * 带回调函数的集合数据的拷贝
+     *
+     * @param sources:  数据源类
+     * @param target:   目标类::new(eg: ExpandUserVisitFollowResp::new)
+     * @param callBack: 回调函数
+     * @return /
+     */
+    public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target, BeanCopyUtilCallBack<S, T> callBack) {
+        List<T> list = new ArrayList<>(sources.size());
+        for (S source : sources) {
+            T t = target.get();
+            BeanUtils.copyProperties(source, t);
+            list.add(t);
+            if (callBack != null) {
+                // 回调
+                callBack.callBack(source, t);
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 集合数据的拷贝
+     *
+     * @param sources: 数据源类
+     * @param target:  目标类::new(eg: ExpandUserVisitFollowResp::new)
+     * @return /
+     */
+    public static <S, T> List<T> copyListProperties(List<S> sources, Supplier<T> target) {
+        return copyListProperties(sources, target, null);
+    }
+
 }
