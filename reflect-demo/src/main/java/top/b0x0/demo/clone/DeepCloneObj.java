@@ -1,5 +1,12 @@
 package top.b0x0.demo.clone;
 
+import lombok.SneakyThrows;
+import top.b0x0.demo.reflect.domain.Student;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 
 /**
@@ -60,6 +67,14 @@ public class DeepCloneObj implements Cloneable {
                 '}';
     }
 
+    /**
+     * 深拷贝
+     * 方式一: {@link DeepCloneUtils}
+     * 方式二: 如下:手动实现数据填充
+     *
+     * @return /
+     * @throws CloneNotSupportedException /
+     */
     @Override
     protected DeepCloneObj clone() throws CloneNotSupportedException {
         // 深拷贝
