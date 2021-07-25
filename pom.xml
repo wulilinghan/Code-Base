@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>top.b0x0</groupId>
-    <artifactId>codebase</artifactId>
+    <groupId>top.b0x0.code.base</groupId>
+    <artifactId>code-base</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>${project.artifactId}</name>
-
     <packaging>pom</packaging>
+
+    <name>Code-Base</name>
 
     <description>集合一些开发中常用的技术</description>
 

@@ -16,8 +16,8 @@
     </properties>
 
     <parent>
-        <groupId>top.b0x0.demo</groupId>
-        <artifactId>infrastructure-develop</artifactId>
+        <groupId>top.b0x0.code.base</groupId>
+        <artifactId>code-base</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
