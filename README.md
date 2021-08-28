@@ -22,7 +22,7 @@
 - 非对称加密算法
 - 对称加密算法
 
-#### io-demo 文件操作
+#### file operation 文件操作
 - 添加阿里OSS文件操作工具类
   - 上传下载
 - 使用thumbnailator处理图片(压缩，旋转，裁切，加水印等)
@@ -37,17 +37,17 @@
 - Word操作
   - 模板填充数据  (导出数据库词典
 
-#### design-pattern-demo 设计模式
+#### design pattern 设计模式
 - factory 工厂模式
 - observer 观察者模式
 - template method 模板方法
 - Strategy 策略模式
 
-#### http-demo
+#### http client
 - RestTemplate
 - WebClient
 
-#### distributed-lock-demo 分布式锁实现
+#### distributed-lock 分布式锁实现
 - db
 - redis
 - zookeeper
