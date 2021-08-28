@@ -5,26 +5,26 @@
 
     <groupId>top.b0x0.code.base</groupId>
     <artifactId>code-base</artifactId>
+    <name>Code Base</name>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Code-Base</name>
 
     <description>集合一些开发中常用的技术</description>
 
     <modules>
-        <module>design-pattern-demo</module>
+        <module>design-pattern</module>
         <module>encryption-demo</module>
-        <module>http-demo</module>
-        <module>io-demo</module>
+        <module>http-client</module>
+        <module>file-operation</module>
         <module>mybatis-demo</module>
-        <module>pdf-demo</module>
+        <module>parsing-PDF</module>
+        <module>parsing-XML</module>
+        <module>HtmlToPDF</module>
         <module>reflect-demo</module>
-        <module>switch-to-optimize-demo</module>
-        <module>xml-demo</module>
-        <module>distributed-lock-demo</module>
+        <module>distributed-lock</module>
         <module>circular-reference-demo</module>
-        <module>data-structure-demo</module>
+        <module>data-structure</module>
     </modules>
 
     <parent>

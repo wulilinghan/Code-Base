@@ -5,18 +5,18 @@
 - 一对多查询
 - 一二级缓存测试
 
-#### pdf-demo PDF解析
+#### parsing-PDF PDF解析
 - 数据+模板生成PDF
 
-#### xml-demo xml解析
+#### parsing-XML xml解析
 - 解析xml格式结果,映射成Javabean
+
+#### HtmlToPDF
+- 将HTML字符串内容转换为PDF文件
 
 #### reflect-demo
 - 反射处理对象中的数据,修改指定字段的值
 - 浅拷贝与深拷贝
-
-#### switch-to-optimize-demo
-- 使用策略模式优化 switch / if else
 
 #### encryption-demo 常用加解密算法
 - 非对称加密算法
@@ -40,6 +40,8 @@
 #### design-pattern-demo 设计模式
 - factory 工厂模式
 - observer 观察者模式
+- template method 模板方法
+- Strategy 策略模式
 
 #### http-demo
 - RestTemplate

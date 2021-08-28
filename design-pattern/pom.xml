@@ -3,14 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>parsing-XML</artifactId>
+    <artifactId>design-pattern</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>parsing-XML</name>
-    <description>解析xml</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
+    <name>Design Pattern</name>
+    <description>设计模式</description>
 
     <parent>
         <groupId>top.b0x0.code.base</groupId>
@@ -18,17 +14,14 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
@@ -36,13 +29,11 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
