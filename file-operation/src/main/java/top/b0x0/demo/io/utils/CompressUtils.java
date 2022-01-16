@@ -1,4 +1,4 @@
-package top.b0x0.demo.io.util;
+package top.b0x0.demo.io.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
@@ -16,7 +16,7 @@ import org.apache.tools.tar.TarInputStream;
 import org.apache.tools.tar.TarOutputStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import top.b0x0.demo.io.util.oss.OSSUtils;
+import top.b0x0.demo.io.utils.oss.OSSUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;

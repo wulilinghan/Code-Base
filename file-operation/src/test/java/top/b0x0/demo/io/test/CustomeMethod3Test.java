@@ -1,6 +1,7 @@
-package top.b0x0.demo.io.util;
+package top.b0x0.demo.io.test;
 
-import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import top.b0x0.demo.io.BaseTest;
 
 import javax.servlet.ServletException;
 import java.io.File;
@@ -8,17 +9,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static top.b0x0.demo.io.util.CompressUtils.doZip;
-import static top.b0x0.demo.io.util.CompressUtils.doZip4Url;
+import static top.b0x0.demo.io.utils.CompressUtils.doZip;
+import static top.b0x0.demo.io.utils.CompressUtils.doZip4Url;
 
-/**
- * 1. 将多个远端文件读取并压缩  doZip4Url()
- * 2. 将本地某个文件/文件夹压缩 doZip()
- *
- * @author musui
- */
-@Slf4j
-public class TestC {
+
+public class CustomeMethod3Test extends BaseTest {
 
     private static final String PATH_1 = "http://www.baidu.com/img/bd_logo1.png";
     private static final String PATH_2 = "http://www.baidu.com/img/bd_logo1.png";
@@ -37,7 +32,8 @@ public class TestC {
         }
     }
 
-    public static void main(String[] args) throws IOException, ServletException {
+    @org.junit.Test
+    public void test_2() throws IOException, ServletException {
         System.out.println("os.name " + System.getProperty("os.name"));
         boolean win = SYS_OS.toLowerCase().startsWith("win");
         System.out.println("win = " + win);
@@ -64,11 +60,6 @@ public class TestC {
         fileList.add(srcFile2);
 //        fileList.add(srcFile4);
         doZip(fileList, targetFile);
-
     }
-
-
-
-
 
 }

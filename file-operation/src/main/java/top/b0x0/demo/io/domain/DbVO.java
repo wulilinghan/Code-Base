@@ -7,7 +7,7 @@ import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 
-import static top.b0x0.demo.io.FileWordController.DB_TYPE;
+import static top.b0x0.demo.io.controller.FileWordController.DB_TYPE;
 
 
 /**

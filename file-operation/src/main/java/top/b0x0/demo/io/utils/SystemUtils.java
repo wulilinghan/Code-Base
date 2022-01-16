@@ -1,4 +1,4 @@
-package top.b0x0.demo.io.util;
+package top.b0x0.demo.io.utils;
 
 /**
  * @author TANG

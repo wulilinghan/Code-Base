@@ -1,19 +1,20 @@
-package top.b0x0.demo.io;
+package top.b0x0.demo.io.test;
+
+import org.junit.Test;
+import top.b0x0.demo.io.BaseTest;
+import top.b0x0.demo.io.utils.CompressUtils;
 
 import javax.servlet.ServletException;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-/**
- * @author TANG
- * @since 2021/04/13
- */
-public class TestA {
+import static top.b0x0.demo.io.utils.CompressUtils.doZip;
+import static top.b0x0.demo.io.utils.CompressUtils.doZip4Url;
+
+
+public class CustomeMethod2Test extends BaseTest {
     private static final String PATH_1 = "http://www.baidu.com/img/bd_logo1.png";
     private static final String PATH_2 = "http://www.baidu.com/img/bd_logo1.png";
     private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat("yyyyMMddHHmmssSSS");
@@ -32,7 +33,8 @@ public class TestA {
         }
     }
 
-    public static void main(String[] args) throws IOException, ServletException {
+    @Test
+    public void t_1() throws IOException, ServletException {
         System.out.println("os.name " + System.getProperty("os.name"));
         boolean win = SYS_OS.toLowerCase().startsWith("win");
         System.out.println("win = " + win);
@@ -96,4 +98,5 @@ public class TestA {
             }*/
         }
     }
+
 }

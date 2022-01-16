@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.b0x0.demo.io.dao.PersonDao">
+
+    <resultMap type="top.b0x0.demo.io.entity.Person" id="PersonMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="formername" column="formername" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="urlFrontofidcard" column="url_frontOfIDCard" jdbcType="VARCHAR"/>
+        <result property="urlBackofidcard" column="url_backOfIDCard" jdbcType="VARCHAR"/>
+        <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="PersonMap">
+        select
+          id, username, formername, age, sex, address, url_frontOfIDCard, url_backOfIDCard, birthday, create_time
+        from person
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="PersonMap">
+        select
+          id, username, formername, age, sex, address, url_frontOfIDCard, url_backOfIDCard, birthday, create_time
+        from person
+        <where>
+            <if test="p.id != null and p.id != ''">
+                and id = #{p.id}
+            </if>
+            <if test="p.username != null and p.username != ''">
+                and username = #{p.username}
+            </if>
+            <if test="p.formername != null and p.formername != ''">
+                and formername = #{p.formername}
+            </if>
+            <if test="p.age != null and p.age != ''">
+                and age = #{p.age}
+            </if>
+            <if test="p.sex != null and p.sex != ''">
+                and sex = #{p.sex}
+            </if>
+            <if test="p.address != null and p.address != ''">
+                and address = #{p.address}
+            </if>
+            <if test="p.urlFrontofidcard != null and p.urlFrontofidcard != ''">
+                and url_frontOfIDCard = #{p.urlFrontofidcard}
+            </if>
+            <if test="p.urlBackofidcard != null and p.urlBackofidcard != ''">
+                and url_backOfIDCard = #{p.urlBackofidcard}
+            </if>
+            <if test="p.birthday != null and p.birthday != ''">
+                and birthday = #{p.birthday}
+            </if>
+            <if test="p.createTime != null">
+                and create_time = #{p.createTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from person
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="formername != null and formername != ''">
+                and formername = #{formername}
+            </if>
+            <if test="age != null and age != ''">
+                and age = #{age}
+            </if>
+            <if test="sex != null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="urlFrontofidcard != null and urlFrontofidcard != ''">
+                and url_frontOfIDCard = #{urlFrontofidcard}
+            </if>
+            <if test="urlBackofidcard != null and urlBackofidcard != ''">
+                and url_backOfIDCard = #{urlBackofidcard}
+            </if>
+            <if test="birthday != null and birthday != ''">
+                and birthday = #{birthday}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+        </where>
+    </select>
+
+</mapper>
+

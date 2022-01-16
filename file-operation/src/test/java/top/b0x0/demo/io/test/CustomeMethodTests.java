@@ -1,14 +1,22 @@
-package top.b0x0.demo.io.util;
+package top.b0x0.demo.io.test;
 
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import top.b0x0.demo.io.BaseTest;
+import top.b0x0.demo.io.utils.CompressUtils;
+
+import javax.servlet.ServletException;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-/**
- * @author TANG
- * @since 2021/04/20
- */
-public class TestB {
+import static top.b0x0.demo.io.utils.CompressUtils.doZip;
+import static top.b0x0.demo.io.utils.CompressUtils.doZip4Url;
+
+
+public class CustomeMethodTests extends BaseTest {
+
     static String srcFilename1 = "D:\\tmp\\工作簿1.xlsx";
     static String srcFilename2 = "D:\\tmp\\工作簿1 - 副本.xlsx";
     static String srcFilename4 = "D:\\tmp\\新建文件夹 (2)\\工作簿1.xlsx";
@@ -27,11 +35,11 @@ public class TestB {
         srcFileList.add(srcFile4);
     }
 
-    public static void main(String[] args) throws Exception {
-
+    @Test
+    public void test() throws Exception {
         srcFileList.add(srcFile3);
         CompressUtils.doTarGz(srcFileList, "d:/tmp/targz/out.tar.gz");
-
-
     }
+
+
 }

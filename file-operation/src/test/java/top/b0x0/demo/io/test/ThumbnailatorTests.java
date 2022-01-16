@@ -1,4 +1,4 @@
-package top.b0x0.demo.io;
+package top.b0x0.demo.io.test;
 
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import top.b0x0.demo.io.IoDemoApplication;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

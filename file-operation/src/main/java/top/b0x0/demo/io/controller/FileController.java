@@ -1,4 +1,4 @@
-package top.b0x0.demo.io;
+package top.b0x0.demo.io.controller;
 
 import cn.hutool.core.io.FileUtil;
 import io.swagger.annotations.Api;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import top.b0x0.demo.io.domain.R;
-import top.b0x0.demo.io.util.SystemUtils;
+import top.b0x0.demo.io.utils.SystemUtils;
 
 import java.io.File;
 import java.util.ArrayList;

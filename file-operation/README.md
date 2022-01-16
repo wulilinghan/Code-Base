@@ -21,5 +21,23 @@ io包的封装主要针对流、文件的读写封装，主要以工具类为主
 - FastByteBuffer 快速缓冲，将数据存放在缓冲集中，取代以往的单一数组（from blade）
 
 
-# 延伸阅读
+# 基于Apache POI导出大数据量（百万级）Excel的实现
+
+```xml
+        <!-- Apache POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
+```
+### 使用POI导出大数据量Excel Demo
+
+模拟了100W进行一次性Excel导出。 千万数据通过拆分成多个文件，最终打成一个压缩包实现。
+
 
